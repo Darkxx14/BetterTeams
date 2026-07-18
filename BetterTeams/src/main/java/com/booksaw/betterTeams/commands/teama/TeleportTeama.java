@@ -317,4 +317,9 @@ public class TeleportTeama extends SubCommand {
 				break;
 		}
 	}
+
+	@Override
+	protected boolean runAsync(String[] args) {
+		return false;
+	}
 }

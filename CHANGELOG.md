@@ -8,7 +8,8 @@ The newest release will always be maintained at the top of the file.
 
 ### Bug Fixes
 
-* Fix issue with database retrivial on Linux (#1005)
+* Fixed issue with database retrieval on Linux (#1005)
+* Fixed the `/teama teleport` command attempting to run unintentionally asynchronously (#1015)
 
 # 5.1.2
 
