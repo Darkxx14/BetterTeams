@@ -5,7 +5,7 @@
 
 # Any placeholders from placeholder API will work in this file
 
-# Credit for contributions to this file: YnsanitY, PACIOCS
+# Credit for contributions to this file: YnsanitY, PACIOCS, Eddy
 
 invalidArg: '&4Argomento non valido, help'
 inTeam: '&4Per farlo è necessario fare parte di un team'
@@ -39,6 +39,12 @@ placeholder:
   inteam: 'true'
   notinteam: 'false'
   noTitle: ''
+  hasHome: 'true'
+  noHome: 'false'
+  teamChat: '"Chat del Team"'
+  globalChat: '"Chat Globale"'
+  allyChat: '"Chat Alleati"'
+  noMeta: ''
 prefix:
   owner: ' **'
   admin: ' *'
@@ -124,6 +130,10 @@ info:
   ally: '&6Alleati: &b{0}'
   online: '&a'
   offline: '&c'
+  anchor: '"&6Ancora: &b{0}"'
+  onlinePlayer: '"<green>{0}</green>"'
+  offlinePlayer: '"<red>{0}</red>"'
+  playerListSpace: '"  "'
 kick:
   success: '&6Questo giocatore è stato cacciato'
   notify: '&6Sei stato cacciato dal team {0}'
@@ -239,6 +249,7 @@ delwarp:
 teleport:
   fail: '&4Il teletrasporto è fallito'
   wait: '&6Aspetta &b{0} &6secondi'
+  bypass: '"&6Grazie ai tuoi permessi, hai bypassato il tempo di attesa del teletrasporto!"'
 chest:
   claim:
     noChest: '&4Non sei sopra un baule'
@@ -402,6 +413,28 @@ admin:
   import:
     fail: '&4Importazione dei messaggi fallita, leggi la console per i log dell''errore'
     success: '&6I messaggi sono stati importati con successo'
+  versionplugins: '"&6Integrazioni plugin: &b{0}"'
+  versionconflicts: '"&6Conflitti potenziali: &b{0}"'
+  anchor:
+    enabled: '"&6Hai forzato il giocatore a permettere la rinascita alla casa del
+      suo team"'
+    disabled: '"&6Hai forzato il giocatore a non permettere la rinascita alla casa
+      del suo team"'
+  setanchor:
+    enabled: '"&6Lo stato dell''ancora di quel team è stato abilitato"'
+    disabled: '"&6Lo stato dell''ancora di quel team è stato disabilitato"'
+    noHome: '"&4Quel team deve prima impostare una casa"'
+  meta:
+    get:
+      noMetaData: '"&cQuesto team non ha voci di metadati."'
+      allMetaData: '"&aMetadati per questo team: &e{0}"'
+      specificMetaData: '''&aLa chiave metadati "&e{0}&a" ha valore: "&e{1}&a"'''
+      noexist: '"&cLa chiave metadati specificata non esiste per questo team."'
+    set:
+      needsValue: '"&cDevi fornire un valore da impostare per la chiave metadati."'
+      success: '"&aChiave metadati impostata con successo"'
+    remove:
+      success: '''&aChiave metadati "&e{0}&a" rimossa con successo dal team'''
 nametag:
   syntax: '&6&l{0}&r '
 holo:
@@ -421,12 +454,14 @@ spy:
   start: '&6Ora stai spiando i messaggi del team'
   team: '&7[&b{0}&7]&f{1}&f: {2}'
   ally: '&7[&d{0}&7]&f{1}&f: {2}'
+  guild: '"&7[&f{0}&7]&f{1}&f: {2}"'
 uclaim:
   team: '&4È necessario far parte di un team per creare un claim'
   member: '&4Non è possibile abbandonare il claim del team'
   kick: '&4Non è possibile cacciare i membri del proprio team da questo claim'
   ban: '&4Non è possibile bannare i membri del proprio team da questo claim'
   dissolve: '&4Il team è stato sciolto e la richiesta di claim è stata annullata'
+  guild: '"&4Devi essere in una gilda per creare un claim"'
 help:
   description: Visualizza e modifica la descrizione del team
   ban: Banna il giocatore specificato dal proprio team
@@ -475,6 +510,25 @@ help:
   warp: Teletrasportati in un warp stabilito dal proprio team
   header: '&6---- &5&lMagicalTeams Help &6----'
   footer: '&6---- &bPagina {0}/{1} - /{2} help <pagina> &6----'
+  teamadmin:
+    echest: '"Visualizza e modifica l''ender chest di quella gilda"'
+    color: '"Cambia il colore di quella gilda"'
+    teleport: '"Teletrasporta il target specificato nella posizione indicata (o nella
+      posizione dell''esecutore)"'
+    description: '"Cambia la descrizione della gilda specificata"'
+    setwarp: '"Imposta un warp per quella gilda"'
+    purge: '"Reimposta punteggio e soldi per tutte le gilde; se specifichi un valore
+      (es. money) verrà reimpostato solo quello"'
+    title: '"Cambia il titolo di un giocatore nel titolo specificato"'
+    setrank: '"Imposta il livello della gilda specificata"'
+  money:
+    add: '"Aggiungi l''importo specificato al saldo di quel giocatore"'
+    help: '"Visualizza questa pagina di aiuto"'
+    set: '"Imposta il saldo del team specificato"'
+    remove: '"Rimuovi l''importo specificato dal saldo di quel giocatore"'
+  wrong: '"&4Qualcosa è andato storto, informa gli admin del server"'
+  anchor: '"Attiva/disattiva se vuoi rinascere alla casa del tuo team"'
+  setanchor: '"Imposta se la casa del tuo team può fungere da punto di rinascita"'
 command:
   create: create
   leave: leave
@@ -535,6 +589,10 @@ command:
   holo: ologramma
   check: check
   help: help
+  anchor: anchor
+  setanchor: setanchor
+  meta: meta
+  get: get
 internalError: '&4Qualcosa è andato storto durante l''esecuzione di quel comando,
   per favore segnalalo agli staffer del server'
 helpArg:
@@ -561,12 +619,7 @@ helpArg:
   disband: ''
   info: '[team/giocatore]'
   delwarp: <nome> [password]
-  chest:
-    help: ''
-    removeall: ''
-    claim: ''
-    check: ''
-    remove: ''
+  chest: ''
   neutral: <team>
   pvp: ''
   baltop: ''
@@ -583,3 +636,51 @@ helpArg:
   open: ''
   warp: <nome>
   withdraw: <quantità>
+  teamadmin:
+    echest: <guild>
+    color: <guild> <color code>
+    teleport: <guild <guild> | player <player> | all> [home | player <player> | location
+      <x> <y> <z> [yaw] [pitch] [world]]
+    description: <guild> <description>
+    setwarp: <guild> <name> [password]
+    purge: '[score/money]'
+    title: <player> <title>
+    setrank: <guild> <rank>
+  money:
+    add: <player/team> <balance>
+    help: ''
+    set: <player/team> <balance>
+    remove: <player/team> <balance>
+  anchor: ''
+  setanchor: <true/false>
+webhook:
+  unknownPlayer: '"un giocatore sconosciuto"'
+  create:
+    title: '"Nuova gilda creata - {0}"'
+    description: '"Una gilda chiamata **{0}** è stata creata da **{1}**"'
+  disband:
+    title: '"Gilda sciolta - {0}"'
+    description: '"Una gilda chiamata **{0}** è stata sciolta da **{1}**"'
+  leave:
+    title: '"Un membro della gilda è uscito - {0}"'
+    description: '"Un utente chiamato **{0}** ha lasciato la gilda **{1}**"'
+  rename:
+    title: '"Cambio nome gilda - {0}"'
+    description: '"Una gilda chiamata **{0}** ha cambiato nome in **{1}** da **{2}**"'
+  chat:
+    title: '"Messaggio Gilda: {0} [{1}]"'
+    description: '"{0}"'
+  allychat:
+    description: '{0}'
+anchor:
+  enabled: '"&6Ora permetti la rinascita alla casa del team"'
+  disabled: '"&6Ora non permetti la rinascita alla casa del team"'
+  noHome: '"&6Il tuo team deve avere una casa impostata e l''ancora del team abilitata"'
+setanchor:
+  enabled: '"&6Ancora del team abilitata"'
+  disabled: '"&6Ancora del team disabilitata"'
+  notifyEnable: '"&6L''ancora del team è stata abilitata da {0}"'
+  notifyDisable: '"&6L''ancora del team è stata disabilitata da {0}"'
+  noHome: '"&4Devi prima impostare una casa del team"'
+  noPerm: '"&4Non hai il permesso di impostare lo stato dell''ancora del tuo team"'
+  noBool: '"&4Lo stato dell''ancora del team può essere solo true o false"'

@@ -5,7 +5,7 @@
 
 # Any placeholders from placeholder API will work in this file
 
-# Credit for contributions to this file: slapthedodo, cle
+# Credit for contributions to this file: slapthedodo, cle, slapthedodo
 
 invalidArg: '&4Ungültige Argumente, schreibe /help'
 internalError: '&4Etwas ist falsch gelaufen während der Bearbeitung von dem Befehl!
@@ -47,6 +47,7 @@ placeholder:
   teamChat: Teamchat
   globalChat: Globaler Chat
   allyChat: Verbündeten-Chat
+  noMeta: ''
 prefix:
   owner: '**'
   admin: '*'
@@ -56,7 +57,7 @@ create:
   success: '&6Dein Team wurde erstellt'
   banned: '&4Dieser Teamname wurde verboten'
   maxLength: '&4Dieser Teamname ist zu lang'
-  minLength: '&4Dieser Teamname ist zu kurz'
+  minLength: '&4Der Teamname ist zu kurz'
 leave:
   success: '&6Du hast das Team verlassen'
   lastOwner: '&6Du bist der einzige Eigentümer in deinem Team. Entweder befördere
@@ -207,7 +208,7 @@ ally:
   onJoin: '&6Du hast neue Verbündungsanfragen. nutze &b/team ally &6um sie zu sehen'
   limit: '&4Das Limit an Verbündungen wurde erreicht'
   alreadyrequest: '&4Du hast bereits eine Verbündungsanfrage an dieses Team gesendet'
-  ally_title: '&6Dein Team ist jetzt mit &b{0} verbündet'
+  ally_title: '&6Dein Team ist nun mit &b{0} verbündet'
 allychat:
   disabled: '&6Deine Nachrichten gehen nun nicht mehr in den Verbündeten-Chat'
   enabled: '&6Deine Nachrichten gehen nun in den Verbündeten-Chat'
@@ -219,7 +220,7 @@ neutral:
   notAlly: '&4Du bist nun mit diesem Team verbündet'
   success: '&4Du bist nun nicht mehr mit diesem Team verbündet'
   remove: '&4Du bist nicht länger verbündet mit &b{0}'
-  remove_title: '&4Du bist nicht länger mit &b{0} verbündet'
+  remove_title: '&4Du bist nicht mehr mit &b{0} verbündet'
 list:
   noPage: '&6Seite konnte nicht gefunden werden'
   header: '&7--- &bTeam-Listen Seite {0} &7---'
@@ -265,7 +266,7 @@ chest:
   check:
     self: '&6Dein Team hat diese Kiste beansprucht'
     notClaimed: '&6Diese Kiste wurde nicht beansprucht'
-    claimed: '&6Diese Kiste ist beansprucht von &a{0}'
+    claimed: '&6Diese Kiste wurde von &a{0} beansprucht'
 echest:
 
   echest: Enderkiste
@@ -414,14 +415,14 @@ admin:
     not: '&4Diese Teams sind nicht Verbündete'
     success: '&6Diese Teams sind nicht mehr Verbündete'
   versionplugins: '&6Plugin-Integrationen: &b{0}'
-  versionconflicts: '&6Potenzielle Konflikte: &b{0}'
+  versionconflicts: '&6Mögliche Konflikte: &b{0}'
   anchor:
-    enabled: '&6Hat den Spieler gezwungen, das Respawn am Team-Heimatpunkt zu erlauben'
-    disabled: '&6Hat den Spieler gezwungen, das Respawn am Team-Heimatpunkt zu verbieten'
+    enabled: '&6Erzwungen, dass der Spieler das Respawnen im Team-Home erlaubt'
+    disabled: '&6Erzwungen, dass der Spieler das Respawnen im Team-Home nicht erlaubt'
   setanchor:
     enabled: '&6Der Ankerstatus dieses Teams wurde aktiviert'
     disabled: '&6Der Ankerstatus dieses Teams wurde deaktiviert'
-    noHome: '&4Dieses Team muss zuerst einen Heimatpunkt setzen'
+    noHome: '&4Dieses Team muss zuerst ein Home gesetzt haben'
   import:
     fail: '&4Der Nachrichtenimport ist fehlgeschlagen, überprüfe die Konsole auf Fehler'
     success: '&6Die Nachrichten wurden erfolgreich importiert'
@@ -495,6 +496,35 @@ help:
     purge: Reset the score and money for all teams, if you specify an value (i.e.
       money) only that will be reset
     title: Change a players title to the specified title
+    anchor: Force a team player to allow or disallow their respawning at their team's
+      home
+    setrank: Set the level of the team specified
+    promote: Promote that player within their team
+    score: ''
+    reload: Reload the BetterTeams configs
+    ally: Set two teams to be allies of each other
+    leave: Force a player to leave a team
+    create: Create a team without an owner
+    join: Force a player to join a team
+    tag: Change the tag of the specified team
+    disband: Disband the specified team§c THIS CANNOT BE UNDONE!!!!!
+    delwarp: Delete that warp from your team
+    setanchor: Set a team's anchor status
+    chest: ''
+    debug: Check the plugin version
+    neutral: Set two teams to no longer be allies
+    chatspy: Spy on messages sent to team chats
+    version: Check the plugin version
+    home: teleport to another teams home
+    help: View this help page
+    demote: Demote a player within their team
+    importmessages: Import the messages from missingmessages.txt the current language
+    money: ''
+    meta: ''
+    name: Set the name for that team
+    holo: ''
+    invite: Invite a player to the specified team
+    open: Toggle if a team is open or not
   wrong: '&4Etwas ist schiefgelaufen, informiere deine Server-Admins'
   anchor: Schaltet um, ob du im Team-Home respawnen möchtest
   setanchor: Legt fest, ob das Team-Home als Respawnpunkt dient
@@ -545,6 +575,34 @@ helpArg:
     setwarp: <team> <name> [password]
     purge: '[score/money]'
     title: <player> <title>
+    anchor: <player>
+    setrank: <team> <rank>
+    promote: <player>
+    score: ''
+    reload: ''
+    ally: <team1> <team2>
+    leave: <player>
+    create: <team>
+    join: <team> <player>
+    tag: <team> <tag>
+    disband: <team>
+    delwarp: <team> <name>
+    setanchor: <team> <true/false>
+    chest: ''
+    debug: ''
+    neutral: <team1> <team2>
+    chatspy: ''
+    version: ''
+    home: <team>
+    help: ''
+    demote: <player>
+    importmessages: ''
+    money: ''
+    meta: ''
+    name: <team> <name>
+    holo: ''
+    invite: <team> <player>
+    open: <team>
   delhome: ''
   echest: ''
   color: <Farbcode>
@@ -613,37 +671,39 @@ command:
   bal: bal
   withdraw: withdraw
   anchor: anker
-  setanchor: anker setzen
+  setanchor: setzeanker
   check: prüfe
   importmessages: nachrichtenimportieren
   holo: holo
+  meta: meta
+  get: get
 anchor:
-  enabled: '&6Du erlaubst jetzt das Respawn an deinem Team-Heimatpunkt'
-  disabled: '&6Du erlaubst jetzt nicht mehr das Respawn an deinem Team-Heimatpunkt'
-  noHome: '&6Dein Team muss einen Team-Heimatpunkt gesetzt und den Team-Anker aktiviert
-    haben'
+  enabled: '&6Du erlaubst nun das Respawnen im Team-Home'
+  disabled: '&6Du erlaubst nun nicht mehr das Respawnen im Team-Home'
+  noHome: '&6Dein Team muss ein Team-Home gesetzt und den Team-Anker aktiviert haben'
 setanchor:
   enabled: '&6Team-Anker aktiviert'
   disabled: '&6Team-Anker deaktiviert'
   notifyEnable: '&6Team-Anker wurde von {0} aktiviert'
   notifyDisable: '&6Team-Anker wurde von {0} deaktiviert'
-  noHome: '&4Muss zuerst einen Team-Heimatpunkt setzen'
-  noPerm: '&4Du hast keine Berechtigung, den Ankerstatus deines Teams zu setzen'
-  noBool: '&4Der Team-Ankerstatus kann nur "true" oder "false" sein'
+  noHome: '&4Ein Team-Home muss zuerst gesetzt werden'
+  noPerm: '&4Du hast keine Berechtigung, den Team-Ankerstatus zu ändern'
+  noBool: '&4Der Team-Ankerstatus kann nur wahr oder falsch sein'
 webhook:
-  unknownPlayer: Unbekannter Spieler
+  unknownPlayer: ein unbekannter Spieler
   create:
-    title: Neues Team erstellt - {0}
+    title: Neues Team erstellt – {0}
     description: Ein Team namens **{0}** wurde von **{1}** erstellt
   disband:
-    title: Team aufgelöst - {0}
+    title: Team aufgelöst – {0}
     description: Ein Team namens **{0}** wurde von **{1}** aufgelöst
   leave:
-    title: Teammitglied hat das Team verlassen - {0}
-    description: Ein Benutzer namens **{0}** hat das Team **{1}** verlassen
+    title: Teammitglied verlassen – {0}
+    description: Ein Spieler namens **{0}** hat das Team **{1}** verlassen
   rename:
-    title: Teamnamenänderung - {0}
-    description: Ein Team namens **{0}** hat seinen Namen von **{1}** zu **{2}** geändert
+    title: Teamname geändert – {0}
+    description: Der Name des Teams **{0}** wurde von **{2}** in **{1}** geändert
   chat:
-    title: 'Team-Nachricht: {0} [{1}]'
+    title: 'Teamnachricht: {0} [{1}]'
+  allychat:
     description: '{0}'

@@ -6,6 +6,17 @@ The newest release will always be maintained at the top of the file.
 
 # 5.1.3
 
+### Improvements
+
+* Updated German Translations - Credit slapthedodo & Others
+* Updated Italian Translations - Credit Eddy
+* Updated Polish Translations - Kuszaa
+* Updated Mexican Spanish Translations - CR4I5, hallaquin
+
+Thank you all for the contributions, you are helping make BetterTeams accessible to many more people!
+
+*I want to add my apologies for getting so far behind on submitted community translations*
+
 ### Bug Fixes
 
 * Fixed issue with database retrieval on Linux (#1005)
