@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file against thei
 
 The newest release will always be maintained at the top of the file.
 
+# 5.1.3
+
+### Bug Fixes
+
+* Fix issue with database retrivial on Linux (#1005)
+
 # 5.1.2
 
 ### Bug Fixes

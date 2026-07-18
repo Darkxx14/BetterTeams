@@ -53,7 +53,7 @@ public class BetterTeamsDatabase extends Database {
 	}
 
 	public PreparedStatement select(String select, TableName from) {
-		return executeQuery("SELECT %s FROM %S".formatted(select, from.toString()));
+		return executeQuery("SELECT %s FROM %s".formatted(select, from.toString()));
 	}
 
 	/**
