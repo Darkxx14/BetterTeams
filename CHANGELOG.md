@@ -10,6 +10,7 @@ The newest release will always be maintained at the top of the file.
 
 * Fixed issue with database retrieval on Linux (#1005)
 * Fixed the `/teama teleport` command attempting to run unintentionally asynchronously (#1015)
+* Fixed the `/team rankup` command attempting to run unintentionally asynchronously (#1023)
 
 # 5.1.2
 
