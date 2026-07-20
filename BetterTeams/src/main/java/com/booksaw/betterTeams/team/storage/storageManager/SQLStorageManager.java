@@ -131,9 +131,9 @@ public class SQLStorageManager extends TeamManager implements Listener {
 		}
 	}
 
-	public Team loadTeam(UUID uuid) {
+	public void loadTeam(UUID uuid) {
 		if (uuid == null || isLoaded(uuid)) {
-			return null;
+			return;
 		}
 
 		Team team;
@@ -141,11 +141,10 @@ public class SQLStorageManager extends TeamManager implements Listener {
 		try {
 			team = new Team(uuid);
 		} catch (IllegalArgumentException e) {
-			return null;
+			return;
 		}
 
 		loadedTeams.put(uuid, team);
-		return team;
 
 	}
 
