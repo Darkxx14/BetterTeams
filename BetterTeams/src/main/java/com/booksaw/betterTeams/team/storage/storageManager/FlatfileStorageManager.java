@@ -260,5 +260,11 @@ public class FlatfileStorageManager extends YamlStorageManager {
 		// not needed 
 	}
 
+	@Override
+	public Team loadTeam(UUID uuid) {
+		// cannot load team using flatfile storage manager, if it could not be found in the loaded list, it does not exist
+		return null;
+	}
+
 
 }

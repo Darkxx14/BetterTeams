@@ -21,12 +21,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class TeamManager {
 	/**
 	 * A list of all teams
 	 */
-	protected final HashMap<UUID, Team> loadedTeams;
+	protected final ConcurrentHashMap<UUID, Team> loadedTeams;
 
 	/**
 	 * If chat is being logged to the console
@@ -40,7 +41,7 @@ public abstract class TeamManager {
 	protected TeamManager() {
 		logChat = Main.plugin.getConfig().getBoolean("logTeamChat");
 
-		loadedTeams = new HashMap<>();
+		loadedTeams = new ConcurrentHashMap<>();
 
 	}
 
@@ -52,7 +53,7 @@ public abstract class TeamManager {
 	 */
 	@SuppressWarnings("unchecked")
 	public Map<UUID, Team> getLoadedTeamListClone() {
-		return (HashMap<UUID, Team>) loadedTeams.clone();
+		return new HashMap<>(loadedTeams);
 	}
 
 	/**
@@ -510,4 +511,6 @@ public abstract class TeamManager {
 	 */
 	public void disable() {
 	}
+
+	public abstract Team loadTeam(UUID uuid);
 }
