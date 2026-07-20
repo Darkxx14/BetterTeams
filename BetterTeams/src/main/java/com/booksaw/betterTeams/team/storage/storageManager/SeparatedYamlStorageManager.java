@@ -115,9 +115,9 @@ public class SeparatedYamlStorageManager extends YamlStorageManager implements L
 
 	}
 
-	public Team loadTeam(UUID uuid) {
+	public void loadTeam(UUID uuid) {
 		if (uuid == null || isLoaded(uuid)) {
-			return null;
+			return;
 		}
 
 		Team team;
@@ -125,10 +125,11 @@ public class SeparatedYamlStorageManager extends YamlStorageManager implements L
 		try {
 			team = new Team(uuid);
 		} catch (IllegalArgumentException e) {
-			return null;
+			return;
 		}
+
 		loadedTeams.put(uuid, team);
-		return team;
+
 	}
 
 	public void unloadTeam(UUID uuid) {
